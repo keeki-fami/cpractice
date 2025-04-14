@@ -7,26 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582768CE2DACE8A600F0DDB5 /* UnderCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582768CD2DACE89B00F0DDB5 /* UnderCalendarView.swift */; };
+		582768D02DACF01500F0DDB5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582768CF2DACF01100F0DDB5 /* Helper.swift */; };
 		583D924A2DA610CD006C2F2C /* AppVersionMonitorSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 583D92492DA610CD006C2F2C /* AppVersionMonitorSwiftUI */; };
 		585469EA2D05A52E007152A5 /* CalendarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585469E92D05A52E007152A5 /* CalendarTestView.swift */; };
+		586F531A2DA91F4B00B5DD44 /* WeekGoalNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F53192DA91F2900B5DD44 /* WeekGoalNum.swift */; };
+		586F531C2DA9293200B5DD44 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F531B2DA9292A00B5DD44 /* ModalView.swift */; };
 		587D9C8D2D054A71006A64E0 /* cpracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9C8C2D054A71006A64E0 /* cpracticeApp.swift */; };
 		587D9C8F2D054A71006A64E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9C8E2D054A71006A64E0 /* ContentView.swift */; };
 		587D9C912D054A72006A64E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587D9C902D054A72006A64E0 /* Assets.xcassets */; };
 		587D9C942D054A72006A64E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587D9C932D054A72006A64E0 /* Preview Assets.xcassets */; };
-		9CCE00871086877EB0853482 /* Pods_cpractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E257A5E1D428D52646C2E87 /* Pods_cpractice.framework */; };
+		58C867D12DACBAD200BB0F1E /* AppVersionMonitorSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 58C867D02DACBAD200BB0F1E /* AppVersionMonitorSwiftUI */; };
+		58C867D32DACBB1400BB0F1E /* AppVersionMonitorSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 58C867D22DACBB1400BB0F1E /* AppVersionMonitorSwiftUI */; };
+		DEC0126418978ADF1D63B943 /* Pods_cpractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A0208779733F7AEC716A5 /* Pods_cpractice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E257A5E1D428D52646C2E87 /* Pods_cpractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cpractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41BE2AFD0810E2E729D3A815 /* Pods-cpractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cpractice.debug.xcconfig"; path = "Target Support Files/Pods-cpractice/Pods-cpractice.debug.xcconfig"; sourceTree = "<group>"; };
-		49187FC200A69C30E26CA698 /* Pods-cpractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cpractice.release.xcconfig"; path = "Target Support Files/Pods-cpractice/Pods-cpractice.release.xcconfig"; sourceTree = "<group>"; };
+		403A0208779733F7AEC716A5 /* Pods_cpractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cpractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		582768CD2DACE89B00F0DDB5 /* UnderCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderCalendarView.swift; sourceTree = "<group>"; };
+		582768CF2DACF01100F0DDB5 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		585469E92D05A52E007152A5 /* CalendarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTestView.swift; sourceTree = "<group>"; };
+		586F53192DA91F2900B5DD44 /* WeekGoalNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekGoalNum.swift; sourceTree = "<group>"; };
+		586F531B2DA9292A00B5DD44 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		587D9C892D054A71006A64E0 /* cpractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cpractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587D9C8C2D054A71006A64E0 /* cpracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cpracticeApp.swift; sourceTree = "<group>"; };
 		587D9C8E2D054A71006A64E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		587D9C902D054A72006A64E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		587D9C932D054A72006A64E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		58928FA82D94FBFD00909245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2247A7BD2D3B6D0D230D927 /* Pods-cpractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cpractice.release.xcconfig"; path = "Target Support Files/Pods-cpractice/Pods-cpractice.release.xcconfig"; sourceTree = "<group>"; };
+		F282C5A7A0BE38EB579F1FDE /* Pods-cpractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cpractice.debug.xcconfig"; path = "Target Support Files/Pods-cpractice/Pods-cpractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +45,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				583D924A2DA610CD006C2F2C /* AppVersionMonitorSwiftUI in Frameworks */,
-				9CCE00871086877EB0853482 /* Pods_cpractice.framework in Frameworks */,
+				58C867D12DACBAD200BB0F1E /* AppVersionMonitorSwiftUI in Frameworks */,
+				58C867D32DACBB1400BB0F1E /* AppVersionMonitorSwiftUI in Frameworks */,
+				DEC0126418978ADF1D63B943 /* Pods_cpractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +57,8 @@
 		4473261D94F5B7F8DF782829 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				41BE2AFD0810E2E729D3A815 /* Pods-cpractice.debug.xcconfig */,
-				49187FC200A69C30E26CA698 /* Pods-cpractice.release.xcconfig */,
+				F282C5A7A0BE38EB579F1FDE /* Pods-cpractice.debug.xcconfig */,
+				E2247A7BD2D3B6D0D230D927 /* Pods-cpractice.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -57,7 +69,7 @@
 				587D9C8B2D054A71006A64E0 /* cpractice */,
 				587D9C8A2D054A71006A64E0 /* Products */,
 				4473261D94F5B7F8DF782829 /* Pods */,
-				6BEBC7E437FCA63CE201880E /* Frameworks */,
+				CD79169D46B2C4D9886CEE55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,8 +86,12 @@
 			children = (
 				58928FA82D94FBFD00909245 /* Info.plist */,
 				587D9C8C2D054A71006A64E0 /* cpracticeApp.swift */,
+				586F53192DA91F2900B5DD44 /* WeekGoalNum.swift */,
+				586F531B2DA9292A00B5DD44 /* ModalView.swift */,
+				582768CD2DACE89B00F0DDB5 /* UnderCalendarView.swift */,
 				587D9C8E2D054A71006A64E0 /* ContentView.swift */,
 				585469E92D05A52E007152A5 /* CalendarTestView.swift */,
+				582768CF2DACF01100F0DDB5 /* Helper.swift */,
 				587D9C902D054A72006A64E0 /* Assets.xcassets */,
 				587D9C922D054A72006A64E0 /* Preview Content */,
 			);
@@ -90,10 +106,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		6BEBC7E437FCA63CE201880E /* Frameworks */ = {
+		CD79169D46B2C4D9886CEE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E257A5E1D428D52646C2E87 /* Pods_cpractice.framework */,
+				403A0208779733F7AEC716A5 /* Pods_cpractice.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,11 +121,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 587D9C972D054A72006A64E0 /* Build configuration list for PBXNativeTarget "cpractice" */;
 			buildPhases = (
-				D612DA49FD3AC4B8581BD62B /* [CP] Check Pods Manifest.lock */,
+				CD613384E02597112A0BC64E /* [CP] Check Pods Manifest.lock */,
 				587D9C852D054A71006A64E0 /* Sources */,
 				587D9C862D054A71006A64E0 /* Frameworks */,
 				587D9C872D054A71006A64E0 /* Resources */,
-				EB8066EE2CF1377E126FB16D /* [CP] Embed Pods Frameworks */,
+				EA6E5D19CD8728C09FF83C56 /* [CP] Embed Pods Frameworks */,
+				0A53DB01CCF3F5A8CD4C80EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,7 +186,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D612DA49FD3AC4B8581BD62B /* [CP] Check Pods Manifest.lock */ = {
+		0A53DB01CCF3F5A8CD4C80EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cpractice/Pods-cpractice-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cpractice/Pods-cpractice-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cpractice/Pods-cpractice-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD613384E02597112A0BC64E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -191,7 +229,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB8066EE2CF1377E126FB16D /* [CP] Embed Pods Frameworks */ = {
+		EA6E5D19CD8728C09FF83C56 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,9 +237,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-cpractice/Pods-cpractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-cpractice/Pods-cpractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -216,8 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				587D9C8F2D054A71006A64E0 /* ContentView.swift in Sources */,
+				582768D02DACF01500F0DDB5 /* Helper.swift in Sources */,
 				587D9C8D2D054A71006A64E0 /* cpracticeApp.swift in Sources */,
 				585469EA2D05A52E007152A5 /* CalendarTestView.swift in Sources */,
+				582768CE2DACE8A600F0DDB5 /* UnderCalendarView.swift in Sources */,
+				586F531A2DA91F4B00B5DD44 /* WeekGoalNum.swift in Sources */,
+				586F531C2DA9293200B5DD44 /* ModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -333,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -345,7 +391,7 @@
 		};
 		587D9C982D054A72006A64E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41BE2AFD0810E2E729D3A815 /* Pods-cpractice.debug.xcconfig */;
+			baseConfigurationReference = F282C5A7A0BE38EB579F1FDE /* Pods-cpractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -356,6 +402,7 @@
 				DEVELOPMENT_TEAM = LMUVG7YFCW;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GADApplicationIdetifier = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cpractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Coilin;
@@ -365,7 +412,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,10 +433,11 @@
 		};
 		587D9C992D054A72006A64E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49187FC200A69C30E26CA698 /* Pods-cpractice.release.xcconfig */;
+			baseConfigurationReference = E2247A7BD2D3B6D0D230D927 /* Pods-cpractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BANNER_ID = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -397,6 +445,7 @@
 				DEVELOPMENT_TEAM = LMUVG7YFCW;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GADApplicationIdetifier = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cpractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Coilin;
@@ -406,7 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +510,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		583D92492DA610CD006C2F2C /* AppVersionMonitorSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 583D92482DA610CD006C2F2C /* XCRemoteSwiftPackageReference "AppVersionMonitorSwiftUI" */;
+			productName = AppVersionMonitorSwiftUI;
+		};
+		58C867D02DACBAD200BB0F1E /* AppVersionMonitorSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 583D92482DA610CD006C2F2C /* XCRemoteSwiftPackageReference "AppVersionMonitorSwiftUI" */;
+			productName = AppVersionMonitorSwiftUI;
+		};
+		58C867D22DACBB1400BB0F1E /* AppVersionMonitorSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 583D92482DA610CD006C2F2C /* XCRemoteSwiftPackageReference "AppVersionMonitorSwiftUI" */;
 			productName = AppVersionMonitorSwiftUI;

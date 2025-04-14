@@ -19,9 +19,11 @@ struct CalendarTestView: UIViewRepresentable{
     @Binding var TotalSum:Int
     @Binding var row : [[String:String]] //お金と目的のデータ一個分
     @State private var totalAmount: Int = 0
-    @Binding var CntForSum:Int//その月の日数
+    @Binding var TotalAmountSpentThisMonth:Int//その月の日数
     @Binding var Month:Int
     @AppStorage("data_by_date") private var dataByDate: String = "{}"
+    @Binding var WeekData:[String]
+    @Binding var updateCount:Int
 
     
     //2025-12-24みたいな形式にする
@@ -119,17 +121,17 @@ struct CalendarTestView: UIViewRepresentable{
                 let totalLabel = UILabel(frame: CGRect(x:0, y: cell.bounds.height - 20, width: cell.bounds.width, height: 20))
                 
                 //表示するデータ
-                if selectedDate > todayDate{
-                    if parent.totalAmount <= 0{
-                        totalLabel.text = ""
-                    }
-                    else{
-                        totalLabel.text = "¥\(parent.totalAmount)"
-                    }
-                }
-                else{
+                //if selectedDate > todayDate{
+                    //if parent.totalAmount <= 0{
+                    //    totalLabel.text = ""
+                    //}
+                    //else{
+                    //    totalLabel.text = "¥\(parent.totalAmount)"
+                    //}
+                //}
+                //else{
                     totalLabel.text = parent.totalAmount > 0 ? "¥\(parent.totalAmount)" : "¥0"
-                }
+                //}
                 
                 totalLabel.font = UIFont.systemFont(ofSize: 12)
                 totalLabel.textColor = .gray
@@ -137,23 +139,23 @@ struct CalendarTestView: UIViewRepresentable{
                 totalLabel.backgroundColor = UIColor.white
                 
                 //目標金額
-                let advantage = parent.goal_num
+                let idx = getWeekAnyDay(date: selectedDate)
+                let advantage = parent.WeekData[idx]
                 
                 let advantageLabel = UILabel(frame: CGRect(x:0,y:cell.bounds.height-35,width:cell.bounds.width,height:20))
                 if let number2 = Int(advantage){
                     parent.subtractions = number2-parent.totalAmount
                 }
                 advantageLabel.text = parent.totalAmount > 0 ? (parent.subtractions > 0 ? "(-\(parent.subtractions))" : "(+\(parent.subtractions * (-1)))") : ""
-                
-                
                 //前の日で一度も入力を行わなかった日は０円にする。
                 
-                if selectedDate < todayDate{
+                //if selectedDate < todayDate{
                     if advantageLabel.text==""{
                         advantageLabel.text = "(-\(advantage))"
                         totalLabel.text = "¥0"
                     }
-                }
+                                
+                //}
                 
                 advantageLabel.backgroundColor = UIColor.white
                 advantageLabel.font = UIFont.systemFont(ofSize:12)
@@ -192,11 +194,34 @@ struct CalendarTestView: UIViewRepresentable{
                 cell.addSubview(button)
             }
             
-            if(parent.CntForSum == 0){
+            if(parent.TotalAmountSpentThisMonth == 0){
+                totalamountspentthismonthcal(date,calendar:calendar)
                 totalsumcalculator(date, calendar: calendar)
             }
             
         }//calendarメソッド
+        func totalamountspentthismonthcal(_ date:Date,calendar:FSCalendar){
+            let currentPageDate = calendar.currentPage
+            let calendar = Calendar.current
+            
+            // 現在の月の開始日と終了日を計算
+            guard let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: currentPageDate)),
+                  let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth) else { return }
+            
+            print("表示中の月: \(startOfMonth) ~ \(endOfMonth)")
+            
+            // 使用金額を計算
+            let today = Date()
+            var temp = startOfMonth
+            parent.TotalAmountSpentThisMonth = 0
+            while(temp<=endOfMonth){
+                let idx = getWeekAnyDay(date: temp)
+                if let num = Int(parent.WeekData[idx]){
+                    parent.TotalAmountSpentThisMonth += num
+                }
+                temp = calendar.date(byAdding: .day, value: 1, to: temp)!//次の日に進む
+            }
+        }
         
         
         //日付を押した時に実行
@@ -212,10 +237,13 @@ struct CalendarTestView: UIViewRepresentable{
             parent.selectedDate = IdentifiableDate(date: date)
         }
         
-        func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-            let currentPageDate = calendar.currentPage
+        func calendarCurrentPageDidChange(_ CCalendar: FSCalendar) {
+            let currentPageDate = CCalendar.currentPage
             let calendar = Calendar.current
             print("月が変更されました")
+            
+            parent.TotalAmountSpentThisMonth = 0
+            totalamountspentthismonthcal(Date(),calendar:CCalendar)
             
             // 現在の月の開始日と終了日を計算
             guard let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: currentPageDate)),
@@ -226,18 +254,21 @@ struct CalendarTestView: UIViewRepresentable{
             // 使用金額を計算
             let today = Date()
             var temp = startOfMonth
-            parent.CntForSum = 0
+            //parent.TotalAmountSpentThisMonth = 0
             while(temp<=endOfMonth){
-                parent.CntForSum += 1
+               // parent.TotalAmountSpentThisMonth += 1
                 temp = calendar.date(byAdding: .day, value: 1, to: temp)!//次の日に進む
             }
-            print("合計日：\(parent.CntForSum)")
-            if(startOfMonth <= today && today <= endOfMonth){
-                calculateTotalForMonth(startDate: startOfMonth, endDate: today)
-            }
-            else{
-                calculateTotalForMonth(startDate: startOfMonth, endDate: endOfMonth)
-            }
+            print("合計日：\(parent.TotalAmountSpentThisMonth)")
+            //if(startOfMonth <= today && today <= endOfMonth){
+            //    calculateTotalForMonth(startDate: startOfMonth, endDate: today)
+            //}
+            //else{
+            //    calculateTotalForMonth(startDate: startOfMonth, endDate: endOfMonth)
+            //}
+            calculateTotalForMonth(startDate:startOfMonth , endDate:endOfMonth)
+            
+            
             
         }
         
@@ -269,9 +300,9 @@ struct CalendarTestView: UIViewRepresentable{
             if (parent.TotalSum > 0){
                 parent.TotalSum = 0
             }
-            if (parent.CntForSum != 0){
-                parent.CntForSum = 0
-            }
+            //if (parent.TotalAmountSpentThisMonth != 0){
+             //   parent.TotalAmountSpentThisMonth = 0
+            //}
             
             
             let cale = Calendar.current
@@ -285,7 +316,7 @@ struct CalendarTestView: UIViewRepresentable{
             let finish = cale.date(byAdding: DateComponents(month: 1, day: -1), to: start)!
             let range = cale.range(of: .day, in: .month, for: start)!
 
-            parent.CntForSum = range.count
+            //parent.TotalAmountSpentThisMonth = range.count
             //let otherday = calendar.startOfDay(for:Date())
             
             var current = start
@@ -300,26 +331,35 @@ struct CalendarTestView: UIViewRepresentable{
         }
         
         private func calculateTotalAmount(for date: Date) -> Int{
-            //↓更新処理（使用するJSONファイルを最新のものにする）
-            let currentDataByDate = UserDefaults.standard.string(forKey: "data_by_date") ?? "{}"
-            let allData: [String: [[String: String]]] = (try? JSONDecoder().decode([String: [[String: String]]].self, from: Data(currentDataByDate.utf8))) ?? [:]
-            let currentDateString = parent.dateFormatter.string(from: date)
-            
-
-            
-            guard let dailyData = allData[currentDateString] else{
-                print("データが見つかりません")
-                return 0
-            }
-            
-            return dailyData.reduce(0) { result, entry in
-                    if let valueString = entry["value"], let value = Int(valueString) {
-                        print("\(currentDateString) = valueString型変更成功 : \(result+value)")
-                        return result + value
-                    }
-                    return result
-                }
-        }
+                     print("calculateTotalAmountがよばれました。")
+                     //↓更新処理（使用するJSONファイルを最新のものにする）
+                     let currentDataByDate = UserDefaults.standard.string(forKey: "data_by_date") ?? "{}"
+                     let allData: [String: [[String: String]]] = (try? JSONDecoder().decode([String: [[String: String]]].self, from: Data(currentDataByDate.utf8))) ?? [:]
+                     let currentDateString = parent.dateFormatter.string(from: date)
+                     
+         
+                     //print(currentDataByDate)
+                     //print(allData)
+                     print("currentDateString:\(currentDateString)")
+                     //print(allData[currentDateString])
+                     
+                     guard let dailyData = allData[currentDateString] else{
+                         //print("データが見つかりません")
+                         print("データが見つかりません")
+                         return 0
+                     }
+                     print(dailyData)
+                     
+                     return dailyData.reduce(0) { result, entry in
+                             if let valueString = entry["value"], let value = Int(valueString) {
+                                 print("valueString:\(valueString)")
+                                 print("\(currentDateString) = valueString型変更成功 : \(result+value)")
+                                 return result + value
+                             }else{
+                                 return result
+                             }
+                         }
+                 }
         
     }
     
@@ -341,6 +381,14 @@ struct CalendarTestView: UIViewRepresentable{
         fsCalendar.appearance.titleTodayColor = .black
         fsCalendar.appearance.borderSelectionColor = UIColor.clear//選択した日付のボーダーカラー
         fsCalendar.appearance.titleSelectionColor = UIColor.black//選択した日付のテキストカラー
+        fsCalendar.appearance.headerDateFormat = "YYYY/MM"
+        fsCalendar.calendarWeekdayView.weekdayLabels[0].text="日"
+        fsCalendar.calendarWeekdayView.weekdayLabels[1].text="月"
+        fsCalendar.calendarWeekdayView.weekdayLabels[2].text="火"
+        fsCalendar.calendarWeekdayView.weekdayLabels[3].text="水"
+        fsCalendar.calendarWeekdayView.weekdayLabels[4].text="木"
+        fsCalendar.calendarWeekdayView.weekdayLabels[5].text="金"
+        fsCalendar.calendarWeekdayView.weekdayLabels[6].text="土"
         
         return fsCalendar
     }
@@ -355,3 +403,4 @@ struct CalendarTestView: UIViewRepresentable{
     }
     
 }
+
