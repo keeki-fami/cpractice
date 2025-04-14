@@ -140,7 +140,7 @@ struct CalendarTestView: UIViewRepresentable{
                 let advantage = parent.goal_num
                 
                 let advantageLabel = UILabel(frame: CGRect(x:0,y:cell.bounds.height-35,width:cell.bounds.width,height:20))
-                if let number2 = Int(advantage){
+                if let number2 = Int(parent.goal_num){
                     parent.subtractions = number2-parent.totalAmount
                 }
                 advantageLabel.text = parent.totalAmount > 0 ? (parent.subtractions > 0 ? "(-\(parent.subtractions))" : "(+\(parent.subtractions * (-1)))") : ""
@@ -150,7 +150,7 @@ struct CalendarTestView: UIViewRepresentable{
                 
                 if selectedDate < todayDate{
                     if advantageLabel.text==""{
-                        advantageLabel.text = "(-\(advantage))"
+                        advantageLabel.text = "(-\(parent.goal_num))"
                         totalLabel.text = "¥0"
                     }
                 }
@@ -355,3 +355,4 @@ struct CalendarTestView: UIViewRepresentable{
     }
     
 }
+
