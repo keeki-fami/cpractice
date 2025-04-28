@@ -3,6 +3,9 @@ import SwiftUI
 import FSCalendar
 import AudioToolbox
 
+import StoreKit
+
+
 struct ModalView: View {
     let date: Date
     @Environment(\.dismiss) private var dismiss
@@ -13,8 +16,11 @@ struct ModalView: View {
     @State private var ShowAlert: Bool =  false
     @AppStorage("data_by_date") private var dataByDate: String = "{}"
     @Binding var TotalSum: Int
-    @Binding var CntForSum:Int
+
+    @Binding var TotalAmountSpentThisMonth:Int
     @FocusState var isActive: Bool // focusのon/off切り替え
+    @Binding var updateCount:Int
+
     
     var body: some View {
              NavigationView{
@@ -73,6 +79,11 @@ struct ModalView: View {
                                              saveData()
                                              AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(1521)) {}
                                              dismiss()
+
+                                             print("showReviewを呼び出し")
+                                             showReview()
+                                             updateCount = 4
+
                                          },label:{
                                              Text("記録")
                                              
@@ -85,8 +96,8 @@ struct ModalView: View {
                                          
                                      } else {
                                          Button(action: {
-                                             
-                                             
+
+
                                              ShowAlert.toggle()
                                              
                                          },label:{
@@ -190,11 +201,14 @@ struct ModalView: View {
         }
         
         // カレンダー更新の通知を送信
-        CntForSum = 0
+
+        TotalAmountSpentThisMonth = 0
         fsCalendar.reloadData()
+        print("ModalView/deleteRow: リロードしました。")
     }
     
-    func saveData() {
+    func saveData(){
+
         let currentDate = dateFormatter.string(from: date)
         var allData: [String: [[String: String]]] = (try? JSONDecoder().decode([String: [[String: String]]].self, from: Data(dataByDate.utf8))) ?? [:]
         
@@ -208,17 +222,36 @@ struct ModalView: View {
         }
         
         // カレンダー更新の通知を送信
-        CntForSum = 0
+
+        TotalAmountSpentThisMonth = 0
         fsCalendar.reloadData()
+        print("ModalView/savaData: リロードしました。")
+
         
     }
     
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
+
+        //formatter.dateFormat = "yyyy年MM月dd"
+
         return formatter
     }
     
+    private func showReview(){
+        print("showReview:判定")
+        if let windowScene = UIApplication.shared.windows.first?.windowScene {
+            print("updateCountの値は\(updateCount)です。")
+            guard updateCount%7==0 && updateCount>0 else{
+                return
+            }
+            print("表示されます。")
+                SKStoreReviewController.requestReview(in: windowScene)
+        }
+    }
+    
+
     
 }
 

@@ -5,6 +5,7 @@
 //  Created by 桜田聖和 on 2025/04/14.
 //
 import SwiftUI
+import UIKit
 
 //目標金額の保存
 func saveGoal(goal_num:String) {
@@ -14,11 +15,13 @@ func saveGoal(goal_num:String) {
         
         let jsonstring = String(data: jsondata, encoding: .utf8)
         UserDefaults.standard.set(jsonstring, forKey: "goalkey")
-        print("保存しました。")
+
+        //print("保存しました。")
         
     } else {
         
-        print("保存失敗")
+        //print("保存失敗")
+
         
     }
 }
@@ -43,10 +46,30 @@ func decodeGoal() -> String? {
            let decodedData = try? JSONDecoder().decode(MyData.self, from: jsondata) {
             return decodedData.goal_num
         } else {
-            print("デコード失敗")
+
+            //print("デコード失敗")
         }
     } else {
-        print("保存されたデータがありません。")
+        //print("保存されたデータがありません。")
     }
     return nil
 }
+
+func getWeekDay()->Int{
+    return Calendar.current.component(.weekday,from:Date())-1 //0:日曜日 0-indexedに合わせる
+}
+
+func getWeekAnyDay(date:Date)->Int{
+    return Calendar.current.component(.weekday,from:date)-1//0-indexed
+}
+
+func TodayGoalNum()->Int{
+    let idx:Int = getWeekDay()
+    guard 0<=idx && idx<7 else{
+        return 0 //えらーが生じた場合、とりあえず０（日曜日）を返す
+    }
+    
+    return idx
+}
+
+

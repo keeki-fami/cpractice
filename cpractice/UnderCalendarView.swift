@@ -12,14 +12,14 @@ import AudioToolbox
 struct UnderCalendarView:View{
     @State private var isGoalActive: Bool = false
     @Binding var goal_num:String
-    @Binding var CntForSum:Int
+    @Binding var TotalAmountSpentThisMonth:Int
     @Binding var Month:Int
     @Binding var TotalSum:Int
     @Binding var fsCalendar:FSCalendar
+    @Binding var WeekData:[String]
     let componentHeight:CGFloat
     var body:some View{
         HStack{
-            
             ZStack{
                 Rectangle()
                     .fill(Color.cyan)
@@ -36,16 +36,46 @@ struct UnderCalendarView:View{
                                 //.ignoresSafeArea(.keyboard, edges: .all)
                             
                                 VStack{
-                                    
-                                    Text("1日の目標の金額")
+                                    Text("今日の目標の金額")
+
                                         .position(x:75,y:25)
                                     
                                     Text("\(goal_num)")
                                         .position(x:75,y:15)
                                         .font(.custom("bold",size:25))
                                     
+                                
                                     
+                                    Button(action:{
+                                        isGoalActive.toggle()
+                                    }){
+                                        Text("変更する")
+                                            .font(.custom("Regular", size: 15))
+                                            .foregroundColor(.white)
+                                            .frame(width:100,height:componentHeight*0.25)
+                                            .background(Color.cyan)
+                                            .cornerRadius(30)
+                                            .position(x:75,y:20)
+                                    }.sheet(isPresented: $isGoalActive,onDismiss: {
+                                        fsCalendar.reloadData()
+                                    }){
+                                        WeekGoalNum(
+                                            Month: $Month,
+                                            WeekData: $WeekData,
+                                            goal_num: $goal_num,
+                                            fsCalendar: $fsCalendar,
+                                        )
+                                        .onAppear(){
+                                            TotalAmountSpentThisMonth = 0
+                                        }
+                                    }
+
+                                    //
+                                    //
+                                    //この部分を変更
                                     //↓トレイリングクロージャ
+                                    
+
                                     Button(action:{
                                         isGoalActive.toggle()
                                     }){
@@ -72,6 +102,7 @@ struct UnderCalendarView:View{
                                             saveGoal(goal_num:goal_num)
                                         }
                                     }
+
                                     
                                     
                                 }
@@ -112,9 +143,11 @@ struct UnderCalendarView:View{
                                     .position(x:75,y:25)
                                     //.ignoresSafeArea(.keyboard, edges: .all)
                                 
-                                
-                                if let num = Int(goal_num){
-                                    let temp = CntForSum*num - TotalSum
+
+                                //CntForSum:月ごとの目標金額
+                                //TotalSum:月毎の使用金額
+                                    let temp = TotalAmountSpentThisMonth - TotalSum
+
                                     if temp > 0{
                                         Text("(-\(temp))")
                                             .foregroundColor(.blue)
@@ -140,17 +173,16 @@ struct UnderCalendarView:View{
                                         
                                         
                                         
-                                        if let num = Int(goal_num){
-                                            Text("/ ¥\(num * CntForSum)")
-                                                .font(.custom("bold",size:13))
+
+                                        Text("/ ¥\(TotalAmountSpentThisMonth)")
+                                            .font(.custom("bold",size:13))
                                             
-                                        }
                                         
                                         
                                     }
                                     .position(x:75,y:20)
                                     
-                                }
+
                                 
                                 
                             }
@@ -189,7 +221,16 @@ struct UnderCalendarView:View{
         }
         .ignoresSafeArea()
         .onAppear {
-            goal_num = decodeGoal() ?? "0"
+
+            //goal_num = decodeGoal() ?? "0"
+            goal_num = WeekData[TodayGoalNum()]
         }
     }
+    
+
+    
+}
+#Preview{
+    ContentView()
+
 }

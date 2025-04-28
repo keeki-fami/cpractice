@@ -10,7 +10,7 @@ target 'cpractice' do
   # Pods for cpractice
   pod 'FSCalendar'
 
-  # Pods for admob
+  # Pods for adm.
   pod 'Google-Mobile-Ads-SDK'
 
 end

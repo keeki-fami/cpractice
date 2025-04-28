@@ -402,6 +402,7 @@
 				DEVELOPMENT_TEAM = LMUVG7YFCW;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GADApplicationIdetifier = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cpractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Coilin;
@@ -436,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BANNER_ID = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -443,6 +445,7 @@
 				DEVELOPMENT_TEAM = LMUVG7YFCW;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GADApplicationIdetifier = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cpractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Coilin;
