@@ -3,13 +3,15 @@
 向上心を刺激するお小遣い帳アプリ
 <br>
 ## 使用方法
-![Simulator Screenshot - iPhone 15 Pro Max - 2025-03-24 at 02 25 31](https://github.com/user-attachments/assets/aeead8a6-921a-4899-bf37-9d856b30006b)
+<img src="https://github.com/user-attachments/assets/aeead8a6-921a-4899-bf37-9d856b30006b" width="250">
+
 記録したい日のカレンダーをタップ
 <br>
-![Simulator Screenshot - iPhone 15 Pro Max - 2025-03-24 at 02 30 03](https://github.com/user-attachments/assets/d9860ce0-f8d3-4818-9ea7-5600682cc0b0)
+<img src="https://github.com/user-attachments/assets/d9860ce0-f8d3-4818-9ea7-5600682cc0b0" width="250">
+
 使ったお金を記録
 <br>
-![紹介１ 001](https://github.com/user-attachments/assets/ac8d06a4-debe-4e0b-9578-35436fb22188)
+<img src="https://github.com/user-attachments/assets/ac8d06a4-debe-4e0b-9578-35436fb22188" >
 「変更する」ボタンを押して、目標金額を設定！
 <br>
 <br>
